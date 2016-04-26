@@ -24,12 +24,10 @@
 </div>
 
 <div class="contentContainer">
-  <div class="contentText">
-    <?php echo TEXT_INFORMATION; ?>
-  </div>
-
-  <div class="buttonSet">
-    <div class="text-right"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'fa fa-angle-right', tep_href_link(FILENAME_DEFAULT)); ?></div>
+  <div class="row">
+    <?php
+    echo $oscTemplate->getContent('privacy');
+    ?>
   </div>
 </div>
 
