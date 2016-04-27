@@ -43,16 +43,11 @@
         $output .= $v['text'];
         if (tep_not_null($v['buttons'])) {
           $output .= '<div class="buttonSet row">';
-          if (tep_not_null($v['buttons']['left'])) {
-            $output .= '<div class="' . $v['buttons']['left']['bootstrapped'] . '">';
-            $output .= tep_draw_button($v['buttons']['left']['title'], $v['buttons']['left']['icon'], $v['buttons']['left']['link'], 'primary', null, $v['buttons']['left']['style']);
-            $output .= '</div>';
-          }          
-          if (tep_not_null($v['buttons']['right'])) {
-            $output .= '<div class="' . $v['buttons']['right']['bootstrapped'] . '">';
-            $output .= tep_draw_button($v['buttons']['right']['title'], $v['buttons']['right']['icon'], $v['buttons']['right']['link'], 'primary', null, $v['buttons']['right']['style']);
-            $output .= '</div>';
-          }
+          foreach ($v['buttons'] as $d => $e) {
+            if (tep_not_null($v['buttons'][$d])) {
+              $output .= '<div class="' . $e['bootstrapped'] . '">' . tep_draw_button($e['title'], $e['icon'], $e['link'], 'primary', null, $e['style']) . '</div>';
+            }
+          }   
          $output .= '</div>';
         }
       }
