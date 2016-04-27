@@ -25,7 +25,8 @@
                                                                                           'right' => array('title' => IMAGE_BUTTON_CONTINUE,
                                                                                                            'link' => tep_href_link('index.php'),
                                                                                                            'icon' => 'fa fa-chevron-right',
-                                                                                                           'style' => 'btn-info'))));
+                                                                                                           'style' => 'btn-info',
+                                                                                                           'bootstrapped' => 'col-xs-12 text-right'))));
 
     }
 
@@ -42,15 +43,13 @@
         $output .= $v['text'];
         if (tep_not_null($v['buttons'])) {
           $output .= '<div class="buttonSet row">';
-          $right_class = 'col-xs-12';
           if (tep_not_null($v['buttons']['left'])) {
-            $output .= '<div class="col-xs-6">';
+            $output .= '<div class="' . $v['buttons']['left']['bootstrapped'] . '">';
             $output .= tep_draw_button($v['buttons']['left']['title'], $v['buttons']['left']['icon'], $v['buttons']['left']['link'], 'primary', null, $v['buttons']['left']['style']);
             $output .= '</div>';
-            $right_class = 'col-xs-6';
           }          
           if (tep_not_null($v['buttons']['right'])) {
-            $output .= '<div class="' . $right_class . ' text-right">';
+            $output .= '<div class="' . $v['buttons']['right']['bootstrapped'] . '">';
             $output .= tep_draw_button($v['buttons']['right']['title'], $v['buttons']['right']['icon'], $v['buttons']['right']['link'], 'primary', null, $v['buttons']['right']['style']);
             $output .= '</div>';
           }
