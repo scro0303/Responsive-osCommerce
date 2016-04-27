@@ -14,6 +14,19 @@
     var $group = 'privacy';
 
     function prepare() {
+      global $oscTemplate;
+      
+      $oscTemplate->_data[$this->group] = array('information' => array('text' => TEXT_INFORMATION, 
+                                                                       'sort_order' => 100, 
+                                                                       'buttons' => null),
+                                                'buttons'     => array('text' => null, 
+                                                                       'sort_order' => 200,
+                                                                       'buttons' => array('left' => null,
+                                                                                          'right' => array('title' => IMAGE_BUTTON_CONTINUE,
+                                                                                                           'link' => tep_href_link('index.php'),
+                                                                                                           'icon' => 'fa fa-chevron-right',
+                                                                                                           'style' => 'btn-info'))));
+
     }
 
     function build() {
